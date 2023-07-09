@@ -65,7 +65,7 @@ def submit_data(name_entry, course_entry, subject_entry, marks_entry):
     sheet = workbook.active
 
     # Check if the headers exist and create them if necessary
-    headers = ["Name", "Course", "Subject"]
+    headers = ["Name", "Course", "Subject", "Marks"]
     for col_num, header in enumerate(headers, start=1):
         col_letter = get_column_letter(col_num)
         if sheet[col_letter + '1'].value != header:
@@ -78,6 +78,7 @@ def submit_data(name_entry, course_entry, subject_entry, marks_entry):
     sheet.cell(row=next_row, column=1).value = name
     sheet.cell(row=next_row, column=2).value = course
     sheet.cell(row=next_row, column=3).value = subject
+    sheet.cell(row=next_row, column=4).value = marks
 
     # Save the workbook
     workbook.save('data.xlsx')
